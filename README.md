@@ -4,7 +4,13 @@
 
 > \> **Intro** Data agents often use multi-stage agentic workflows to solve data-centric tasks such as Text-to-SQL and retrieval-augmented generation (RAG). Existing methods either reuse fixed model assignments across requests or choose one LLM for an entire request, leaving them unable to adapt as intermediate results emerge. StageRouter instead makes stage-wise routing: it selects an LLM or skips an optional stage based on the information available at that point. It learns this policy from offline trajectories collected through request selection, route pruning, and prefix reuse, using a Marginal-Advantage Network and joint TD–MC training to balance final-answer quality and inference cost.
 
-## Results
+![image-20261020161011554](E:\code\3090\artist-main\Github\Fig\image-20261020161011554.png)
+
+**Routing paradigms.** Unlike fixed workflow-level assignments or a single model per request, StageRouter adapts its execution decisions stage by stage using intermediate feedback.
+
+
+
+
 
 Results reported in Table 3 of the paper (not reproduced by this source-only release):
 
@@ -64,6 +70,14 @@ LLM_BASE_URL="https://dashscope.aliyuncs.com/compatible-mode/v1"
 
 
 Dataset paths, Train/Dev mode, and prompt-template locations are handled by the workflow code; no machine-specific CHESS paths or `INDEX_SERVER_HOST` / `INDEX_SERVER_PORT` settings are needed for the five-step launchers.
+
+
+
+![image-20261020161053463](E:\code\3090\artist-main\Github\Fig\image-20261020161053463.png)
+
+**StageRouter overview.** Request selection and route pruning guide offline experience collection, followed by policy learning and stage-wise execution at deployment.
+
+## Results
 
 ## Run the Workflows
 
