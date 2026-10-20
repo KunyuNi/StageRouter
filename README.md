@@ -47,7 +47,7 @@ Both workflows use the following candidate LLM pool, with the fixed experimental
 
 This cost schedule reflects API pricing around April 2026 and is held fixed across experiments for consistent cost accounting.
 
-**Despite the modest output-token price gap between the most expensive (T1) and cheapest (T3) candidates, StageRouter reduces inference costs by 71.4% on BIRD and 74.8% on MultiHop-RAG relative to Static-T1, while improving task quality.**
+**Despite the modest output-token price gap between the most expensive and cheapest LLM, StageRouter reduces inference costs by 71.4% on BIRD and 74.8% on MultiHop-RAG relative to Static-T1, while improving task quality.**
 
 
 
@@ -64,11 +64,6 @@ LLM_API_KEY=""
 # OpenAI-compatible API endpoint, including /v1.
 LLM_BASE_URL="https://dashscope.aliyuncs.com/compatible-mode/v1"
 ```
-
-
-
-Dataset paths, Train/Dev mode, and prompt-template locations are handled by the workflow code; no machine-specific CHESS paths or `INDEX_SERVER_HOST` / `INDEX_SERVER_PORT` settings are needed for the five-step launchers.
-
 
 
 ![image-20261020161053463](./Fig/image-20261020161053463.png)
