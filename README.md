@@ -1,7 +1,5 @@
 # StageRouter: Cost-Efficient Stage-wise Routing for Data Agents
 
-**Paper:** Anonymous SIGMOD '27 submission ([paper link to be added])
-
 > \> **Intro** Data agents often use  agentic workflows to solve data-centric tasks such as Text-to-SQL and retrieval-augmented generation (RAG). Existing methods either reuse fixed model assignments across requests or choose one LLM for an entire request, leaving them unable to adapt as intermediate results emerge. StageRouter instead makes stage-wise routing: it selects an LLM or skips an optional stage based on the information available at that point. It learns this policy from offline trajectories collected through request selection, route pruning, and prefix reuse, using a Marginal-Advantage Network and joint TD–MC training to balance final-answer quality and inference cost.
 
 ![image-20261020161011554](./Fig/image-20261020161011554.png)
