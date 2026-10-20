@@ -2,17 +2,15 @@
 
 **Paper:** Anonymous SIGMOD '27 submission ([paper link to be added])
 
-> \> **Intro** Data agents often use multi-stage agentic workflows to solve data-centric tasks such as Text-to-SQL and retrieval-augmented generation (RAG). Existing methods either reuse fixed model assignments across requests or choose one LLM for an entire request, leaving them unable to adapt as intermediate results emerge. StageRouter instead makes stage-wise routing: it selects an LLM or skips an optional stage based on the information available at that point. It learns this policy from offline trajectories collected through request selection, route pruning, and prefix reuse, using a Marginal-Advantage Network and joint TD–MC training to balance final-answer quality and inference cost.
+> \> **Intro** Data agents often use  agentic workflows to solve data-centric tasks such as Text-to-SQL and retrieval-augmented generation (RAG). Existing methods either reuse fixed model assignments across requests or choose one LLM for an entire request, leaving them unable to adapt as intermediate results emerge. StageRouter instead makes stage-wise routing: it selects an LLM or skips an optional stage based on the information available at that point. It learns this policy from offline trajectories collected through request selection, route pruning, and prefix reuse, using a Marginal-Advantage Network and joint TD–MC training to balance final-answer quality and inference cost.
 
-![image-20261020161011554](.\image-20261020161011554.png)
+![image-20261020161011554](./Fig/image-20261020161011554.png)
 
 **Routing paradigms.** Unlike fixed workflow-level assignments or a single model per request, StageRouter adapts its execution decisions stage by stage using intermediate feedback.
 
 
 
-
-
-Results reported in Table 3 of the paper (not reproduced by this source-only release):
+## 🚀 Performance 
 
 | Task / benchmark | Method | Quality | Average latency (s) | Average cost (USD) |
 | --- | --- | ---: | ---: | ---: |
@@ -25,7 +23,7 @@ EX is execution accuracy; F1 is token-level answer F1. Cost is the average LLM A
 
 
 
-## Requirements
+## 🏗️ Requirements
 
 We recommend using Conda to manage the project environment. For example:
 
@@ -37,7 +35,7 @@ conda activate StageRouter
 pip install -r requirements.txt
 ```
 
-## LLM Configuration
+## 🛠️LLM Configuration
 
 Both workflows use the following candidate LLM pool, with the fixed experimental prices in Table 2 of the paper:
 
@@ -73,13 +71,11 @@ Dataset paths, Train/Dev mode, and prompt-template locations are handled by the 
 
 
 
-![image-20261020161053463](E:\code\3090\artist-main\Github\Fig\image-20261020161053463.png)
+![image-20261020161053463](./Fig/image-20261020161053463.png)
 
 **StageRouter overview.** Request selection and route pruning guide offline experience collection, followed by policy learning and stage-wise execution at deployment.
 
-## Results
-
-## Run the Workflows
+## 🏃 Run the Workflows
 
 Before starting either task, complete the environment and GTE configuration above. Both tasks use the same five entry points, with paths and run settings configured in each task's `_workflow.py`; no command-line arguments are required.
 
